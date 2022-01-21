@@ -6,7 +6,6 @@ ENV PATH="/usr/bin:${PATH}"
 ENV JAVA_OPTS="-Duser.language=de -Duser.country=DE"
 ENV SAE_INSTALL_DIR=/opt/sae
 ENV SAE_HOME=/opt/sae/data
-ENV SAE_VERSION=${VERSION}
 
 EXPOSE 8080
 
