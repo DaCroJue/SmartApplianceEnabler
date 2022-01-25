@@ -8,6 +8,8 @@ Den go-eCharger gibt es mittlerweile in mehreren Versionen.
 Die aktuellste Version ist die V3, welche mehr features als die Vorgängerversion unterstützt.
 Um einen V3 go-eCharger voll kompatibel mit den unten genannten Parametern zu machen, muss die lokale HTTP API v1 in der App des go-eCharger
 aktiviert werden unter: Internet -> erweiterte Einstellungen -> Aktiviere lokale HTTP API v1
+Es ist auch eine Abfrage des Zählerstandes unter der API v2 möglich, jedoch bietet diese keine Nachkommastellen, so dass der Wert zur Zeit noch sehr ungenau ist.
+API-Keys der V2 --> https://github.com/goecharger/go-eCharger-API-v2/blob/main/apikeys-de.md.
 
 ## Geräte-Konfiguration
 
@@ -36,6 +38,14 @@ Im Feld `Umrechnungsfaktor` muss die Zahl `0.0000027778` eingegeben werden, weil
 Als Parameter ist `Zählerstand` zu wählen.
 
 ![Konfiguration des go-eCharger als Zähler](../pics/fe/EVChargerGoeChargerMeter.png)
+
+Für eine Abfrage des Zählers mit der API V2 von Go-E müssen folgende Parameter eingetragen werden. Allerdings wird die Verwendung von API V1 empfohlen:
+Format: JSON
+URL: http://IPDESGO-E/api/status?filter=eto (Damit lediglich der Wert "eto" abgefragt wird und die Abfrge an den Go-E möglichst schmal ausfällt)
+Parameter: Zählerstand
+Methode: GET
+Pfad: ."eto":([0-9.]+)
+
 
 ### Leistung
 
